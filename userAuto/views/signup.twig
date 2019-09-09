@@ -1,0 +1,58 @@
+{% set title = "Admin signup"%}
+{{include('header.twig')}}
+  <div class="container">
+    <h1 class="text-center">Admin Signup </h1>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter a username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="password1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Confrom Password</label>
+            <input type="password" class="form-control" id="password2" placeholder="Password">
+        </div>
+        <button id="subimt" type="submit" class="btn btn-block btn-primary">Submit</button>
+    </form>
+</div>
+ {{include('footer.twig')}}
+<script>
+    window.onload = function(){
+            document.getElementById("subimt").addEventListener("click",function(e){
+                e.preventDefault();
+                sendSignUp();
+            });
+            function sendSignUp(){
+                const password1 = document.getElementById("password1");
+                const password2 = document.getElementById("password2");
+                const username = document.getElementById("username");
+                if(password1.value == ""){
+                    new Noty({
+                        text: "Password can not be blank" ,
+                    }).show();
+                }
+                if(password1.value != password2.value){
+                    new Noty({
+                        text: 'Passwords did not match',
+                    }).show();
+                }
+                let formInfo = {
+                    password1 : password1.value,
+                    password2 : password2.value,
+                    username : username.value
+                }
+                fetch("/admin/signup",{
+                    method: 'POST',
+                    data : formInfo,
+                    credentials: 'include',
+                }).then(function(e){
+                    new Noty({
+                        text : e.text()
+                    })
+                })
+        }
+    }
+</script>

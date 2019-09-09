@@ -7,7 +7,7 @@ var myObject = new Vue({
         },
         mounted (){
             axios
-                .get('/api.php')
+                .get('./includes/api.php')
                 .then(response => {
                     console.log(response)
                     this.name = (response.data.fname + " " + response.data.lname);
@@ -19,4 +19,9 @@ var myObject = new Vue({
       })
       .finally(() => this.loading = false)
         }
+})
+
+
+$(document).ready({
+  
 })

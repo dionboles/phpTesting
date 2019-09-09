@@ -10,23 +10,24 @@
 	</head>
 	<body>
 		<video></video>
+		<canvas id="canvas" width="320px" height="240px"></canvas>
 		<script>
-		var video = document.querySelector('video');
+		const canvasElement = document.querySelector('#canvas');
+		const video = document.querySelector('video');
 		// js obj
-		var constraints = window.constraints = {
+		const constraints = {
 			audio: false,
 			video: true
 		};
-		navigator.mediaDevices.getUserMedia(constraints)
-		.then(function(stream) {
-			var videoTracks = stream.getVideoTracks();
-			console.log('Using video device: ' + videoTracks[0].label);
-				stream.onended = function() {
-					console.log('Stream ended');
-				};
-				window.stream = stream; // make variable available to browser console
-				video.srcObject = stream;
-		})
+		const context = canvasElement.getContext('2d');
+		context.drawImage(video, 0, 0, canvas.width, canvas.height);
+		navigator.mediaDevices.getUserMedia(constraints).then((strem) =>{
+			video.srcObject = strem;
+			video.play();
+		});
+		
+		let picture = canvasElement.toDataURL();
+		console.log(picture);
 		</script>
 	</body>
 </htm>
