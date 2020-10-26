@@ -1,5 +1,5 @@
 <?php
-	$sale = array(array("note","note","noo"),array("noe","hoe"));
+	$sale = array(array("note","note","noo"),array("noe","note"));
 	$fp = fopen("data.csv", "a+");
 	
 	foreach ($sale as $sale_line) {
