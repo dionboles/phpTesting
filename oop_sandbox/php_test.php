@@ -10,18 +10,19 @@
     <?php 
         include("./Coffee.php");
         include("./Student.php");
-        // $b = new Bicycle;
-        // $b -> setBrand("test");
-        // $b -> year = "2018"; 
-        // $b -> model = "test";
+        include("./bicycle.php");
+        $b = new Bicycle;
+        $b -> brand = "Test";
+        $b -> year = "2018"; 
+        $b -> model = "test";
      
-        // $b -> setWeight_Lbs(1.5);
-        // var_dump($b);
+        $b -> setWeight_Lbs(1.5);
+        var_dump($b);
 
         // echo $b -> name();
 
-        $b = new Coffee;
-        $b -> setTemp(200);
+        // $b = new Coffee;
+        // $b -> setTemp(200);
     //    echo "Temp ".$b -> getTemp();
         // var_dump($b);
 

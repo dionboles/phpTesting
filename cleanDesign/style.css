@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+a { 
+    text-decoration: none;
+}
+
+body{
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contaniner{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contaniner > *{
+    padding: 20px;
+}
+
+.nav-area{
+    background: rgb(32, 32, 32);
+}
+
+.nav-area  nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-area ul{
+    display: flex;
+    order: 1;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.nav-area nav a {
+    color: #fff;
+}
+
+.logo{
+    color: #fff;
+}
+
+.nav-area ul li:not(:last-child){
+    padding-right: 15px;
+}
+
+.banner-area {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 360px;
+    background-image: url(./imgs/annie-spratt-PM4Vu1B0gxk-unsplash.jpg);
+    background-position: center center;
+    background-size: cover;
+    align-items:center;
+    color: rgb(104, 102, 102);
+}
+
+.banner-area article{
+    max-width: 500px;
+}
+
+.banner-area h2{
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+@media screen and (min-width:550px){
+    .nav-area ul {
+        width: auto;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:550px){
+    .nav-area  {
+        padding: 20px 80px;
+    }
+    body{
+        font-size: 18px;
+    }
+    .banner-area{
+        padding-left: 60px;
+    }
+    .banner-area h2{
+        font-size: 60px;
+    }
+}
